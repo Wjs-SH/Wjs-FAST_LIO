@@ -1,0 +1,12 @@
+/lidar_points:
+  reliability: reliable
+  history: keep_all
+  durability: volatile
+/utlidar/imu:
+  reliability: reliable
+  history: keep_all
+  durability: volatile
+/leg_odom:
+  reliability: best_effort
+  history: keep_last
+  depth: 50

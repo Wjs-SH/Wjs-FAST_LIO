@@ -1,0 +1,46 @@
+# FAST-LIO parameters for Unitree Go2 + Hesai XT16 (lidar_type 5).
+# Use only with bags conditioned by scripts/make_ref_bag.py: time_offset_lidar_to_imu is 0.0 because
+# the IMU stamps are already on the LiDAR clock. On a raw bag this diverges.
+# extrinsic_T / extrinsic_R: LiDAR pose in the IMU frame for our mount. Change them for another robot.
+/**:
+    ros__parameters:
+        feature_extract_enable: false
+        point_filter_num: 4
+        max_iteration: 5
+        filter_size_surf: 0.25
+        filter_size_map: 0.25
+        cube_side_length: 1000.0
+        runtime_pos_log_enable: false
+        map_file_path: "./t.pcd"
+        common:
+            lid_topic: "/lidar_points"
+            imu_topic: "/utlidar/imu"
+            time_sync_en: false
+            # Conditioned flower bags already place IMU stamps on LiDAR time.
+            time_offset_lidar_to_imu: 0.0
+        preprocess:
+            lidar_type: 5
+            scan_line: 16
+            scan_rate: 10
+            timestamp_unit: 0
+            blind: 0.5
+        mapping:
+            acc_cov: 3.0
+            gyr_cov: 0.3
+            b_acc_cov: 0.0001
+            b_gyr_cov: 0.00001
+            fov_degree: 360.0
+            det_range: 100.0
+            extrinsic_est_en: false
+            extrinsic_T: [0.171, 0.0, -0.0908]
+            extrinsic_R: [-0.7469, -0.6523, 0.1289,
+                          -0.6606, 0.7059, -0.2556,
+                          0.0758, -0.2761, -0.9581]
+        publish:
+            path_en: false
+            scan_publish_en: true
+            dense_publish_en: false
+            scan_bodyframe_pub_en: false
+        pcd_save:
+            pcd_save_en: false
+            interval: -1

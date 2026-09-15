@@ -1,0 +1,17 @@
+# colcon
+build/
+install/
+log/
+
+# python
+__pycache__/
+*.pyc
+
+# run outputs (bags, logs, maps)
+runs/
+*_logs/
+*.db3
+*.db3-shm
+*.db3-wal
+*.pcd
+src/fast_lio/Log/*.txt
